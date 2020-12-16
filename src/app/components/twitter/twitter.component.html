@@ -1,0 +1,75 @@
+<!-- <div class="site-section bg-light">
+        <div class="container" *ngIf="wines!= undefined">
+            <owl-carousel [options]="{ dots: true, nav: true, loop:true, animateOut: 'fadeOut' ,autoplay: true}" [carouselClasses]="['owl-carousel','owl-slide-3','owl-slide']">
+            <blockquote class="testimony">
+                <img src="https://pbs.twimg.com/profile_images/2257729153/image_400x400.jpg" alt="Image">
+                <p>&ldquo;{{ wines[2].description }}&rdquo;</p>
+                <p class="small text-primary" > 
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <a href="https://twitter.com/{{ wines[2].taster_twitter_handle }}" target="_blank" >{{ wines[2].taster_name }}</a>
+                  </p>
+              </blockquote>
+              <blockquote class="testimony">
+                <img src="https://pbs.twimg.com/profile_images/487484392055373825/3crM1srZ_400x400.jpeg" alt="Image">
+                <p>&ldquo;{{ wines[3].description }}&rdquo;</p>
+                <p class="small text-primary" > 
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <a href="https://twitter.com/{{ wines[3].taster_twitter_handle }}" target="_blank">{{ wines[3].taster_name }}</a>
+                  </p>
+              </blockquote>
+              <blockquote class="testimony">
+                <img src="https://pbs.twimg.com/profile_images/708675129497223169/RxBkIRzY_400x400.jpg" alt="Image">
+                <p>&ldquo;{{ wines[4].description }}&rdquo;</p>
+                <p class="small text-primary" > 
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <a href="https://twitter.com/{{ wines[4].taster_twitter_handle }}" target="_blank">{{ wines[4].taster_name }}</a>
+                  </p>
+              </blockquote>
+              <blockquote class="testimony">
+                <img src="https://pbs.twimg.com/profile_images/1195087263014588416/0ExJHZI9_400x400.jpg" alt="Image">
+                <p>&ldquo;{{ wines[0].description }}&rdquo;</p>
+                <p class="small text-primary" > 
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <a href="https://twitter.com/paulgwine" target="_blank">{{ wines[0].taster_name }}</a>
+                  </p>
+              </blockquote>
+        </owl-carousel>
+        </div>
+      </div> -->
+
+  <div class="container">
+
+    <div class="row mb-5">
+    </div>
+    <div class="row" *ngIf="wines!=undefined">
+      <div class="col-lg-4 mb-5 col-md-6" *ngFor="let i of [0,1,2]">
+        <div class="wine_v_1 text-center pb-4">
+          <a routerLink="/shop/{{ wines[i].id }}" class="thumbnail d-block mb-4">
+            <img *ngIf="wines[i].variety.winetype==='Red Wine' " src="assets/images/wine_1.png" alt="Image" class="img-fluid" >
+            <img *ngIf="wines[i].variety.winetype==='White Wine' " src="assets/images/wine_2.png" alt="Image" class="img-fluid">
+            <img *ngIf="wines[i].variety.winetype==='Rosé Wine' || wines[i].variety.winetype==='Champagne' " src="assets/images/wine_3.png" alt="Image" class="img-fluid">
+          </a>
+          <div>
+            <h3 class="heading mb-1"><a routerLink="/shop/{{ wines[i].id}}">{{ wines[i].title }}</a></h3>
+            <span class="price">{{ wines[i].price | currency: 'USD' }}</span>
+          </div>
+          <div class="wine-actions">
+              
+            <h3 class="heading-2"><a routerLink="/shop/{{ wines[i].id}}">{{ wines[i].title }}</a></h3>
+            <span class="price d-block">{{ wines[i].price | currency: 'USD' }}</span>
+            
+
+            <div class="rating">
+              <span class="fa fa-star" ></span>
+              <span class="fa fa-star" ></span>
+              <span class="fa fa-star" ></span>
+              <span class="fa fa-star" ></span>
+              <span class="fa fa-star-half-o" *ngIf="wines[i].point >90 && 95 >wines[i].point"></span>
+            </div>
+            
+            <button class="btn add" (click)="addToCart(wines[i])"><span class="icon-shopping-bag mr-3"></span> Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

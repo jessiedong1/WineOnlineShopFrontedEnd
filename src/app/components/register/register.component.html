@@ -1,0 +1,59 @@
+<div class="col-md-12">
+  <div class="card card-container">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>
+        Email: 
+    <input type="text" class="au-input au-input-xl" formControlName="email" required placeholder="Enter your email" />
+    <div *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)"
+    class="alert alert-danger">
+    <div *ngIf="registerForm.get('email').errors.required">
+        Name is required.
+    </div>
+    <div *ngIf="registerForm.get('email').errors.email">
+        This must be a valid email.
+    </div>
+</div>
+    </label>
+    <label>
+        Username: 
+    <input type="text" class="au-input au-input-xl" formControlName="username" required placeholder="Enter your username" />
+    <div *ngIf="registerForm.get('username').invalid && (registerForm.get('username').dirty || registerForm.get('username').touched)"
+    class="alert alert-danger">
+    <div *ngIf="registerForm.get('username').errors.required">
+        Username is required.
+    </div>
+    <div *ngIf="registerForm.get('username').errors.minlength">
+        Username must be at least 4 characters long.
+    </div>
+    <div *ngIf="registerForm.get('username').errors.maxlength">
+        Username cannot exceed 20 characters long.
+    </div>
+</div>
+    </label>
+    <label>
+        Password: 
+    <input type="text" class="au-input au-input-xl" formControlName="password" required placeholder="Enter your password"/>
+    <div *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)"
+    class="alert alert-danger">
+    <div *ngIf="registerForm.get('password').errors.required">
+        Password is required.
+    </div>
+    <div *ngIf="registerForm.get('password').errors.minlength">
+        Password must be at least 4 characters long.
+    </div>
+    <div *ngIf="registerForm.get('password').errors.maxlength">
+        Password cannot exceed 20 characters long.
+    </div>
+</div>
+    </label>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <div class="alert alert-warning" *ngIf="isSubmitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>   
+    </div>   
+</div>   

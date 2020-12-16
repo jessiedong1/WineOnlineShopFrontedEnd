@@ -1,0 +1,87 @@
+
+<mat-form-field appearance="fill" class="example">
+  <mat-label>Sort by</mat-label>
+  <mat-select [formControl]="sortForm" >
+    <mat-option *ngFor="let criteria of sortCriteria; let i= index" [value]="i" (click)="listProducts(1, variety,'')">
+      {{ criteria }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div class=" mt-5">
+  <section class="example-section">
+    <span class="example-list-section">
+      <mat-checkbox [checked]="selected===-1"(click)="variety='';listProducts(1, '','')">Variety</mat-checkbox>
+    </span>
+    <span class="example-list-section">
+      <ul>
+        <li *ngFor="let winetype of varieties; let i=index" >
+          <mat-checkbox [checked]="selected === i" (change)="selected = i; listProducts(1, winetype,'')">{{ winetype }}</mat-checkbox>
+      </li>
+      </ul>
+    </span>
+  </section>
+  
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 section-title text-center mb-5">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 mb-5 col-md-6" *ngFor="let tempWine of wines">
+          <div class="wine_v_1 text-center pb-4">
+            <a routerLink="/shop/{{ tempWine.id }}" routerLinkActive="active-link" class="thumbnail d-block mb-4">
+              <img *ngIf="tempWine.variety.winetype==='Red Wine' " src="assets/images/wine_1.png" alt="Image" class="img-fluid" >
+              <img *ngIf="tempWine.variety.winetype==='White Wine' " src="assets/images/wine_2.png" alt="Image" class="img-fluid">
+              <img *ngIf="tempWine.variety.winetype==='Rosé Wine' || tempWine.variety.winetype==='Champagne' " src="assets/images/wine_3.png" alt="Image" class="img-fluid">
+            </a>
+            <div>
+              <h3 class="heading mb-1"><a routerLink="/shop/{{ tempWine.id }}">{{ tempWine.title }}</a></h3>
+              <span class="price">{{ tempWine.price | currency:'USD' }}</span>
+            </div>
+            <div class="wine-actions">
+              <h3 class="heading-2"> <a routerLink="/shop/{{ tempWine.id }}">{{ tempWine.title }}</a></h3>
+              <span class="price d-block">{{ tempWine.price | currency: 'USD' }}</span>
+              
+              <div class="rating">
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star-half-o" *ngIf="tempWine.point >90 && 95 >tempWine.point"></span>
+              </div>
+              <button class="btn add" (click)="addToCart(tempWine)"><span class="icon-shopping-bag mr-3"></span> Add to Cart</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+
+        <li  class="page-item"> 
+            <button class="page-link" (click)="minusPageNumber()">&larr; Previous</button>
+          </li>
+          <li class="page-item"><a class="page-link">{{ thePageNumber }}</a></li>
+          <li class="page-item"><a class="page-link" >{{ thePageNumber+1 }}</a></li>
+          <li class="page-item"><a class="page-link" >{{ thePageNumber+2 }}</a></li>
+          
+          <li class="page-item">
+            <button class="page-link" (click)="plusPageNumber()" >Next &rarr;</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hero-2" style="background-image: url('assets/images/wineglass.jpg');">
+   <div class="container">
+      <div class="row justify-content-center text-center align-items-center">
+        <div class="col-md-8">
+          <h2>Discover  </h2><br><h2> your wine</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

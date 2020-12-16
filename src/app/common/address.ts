@@ -1,0 +1,22 @@
+export class Address {
+firstName:string;
+lastName:string;
+line1:string;
+line2:string;
+ state:string;
+ zip:number;
+ country:string;
+ email:string;
+ phone:number;
+ constructor(firstName:string,lastName:string,line1:string,line2:string,state:string,zip:number,country:string,email:string,phone:number){
+     this.firstName=firstName;
+     this.lastName=lastName;
+     this.line1=line1;
+     this.line2=line2;
+     this.state=state;
+     this.zip=zip;
+     this.country=country;
+     this.email=email;
+     this.phone=phone;
+ }
+}

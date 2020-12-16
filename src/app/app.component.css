@@ -1,0 +1,25 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+  mat-card {
+    width: 30%;
+    margin: 10% auto;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+  }
+  mat-form-field, mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+    font-size: large;
+  }
+  mat-card-content {
+    margin-top: 20px;
+    font-size: large;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+  }

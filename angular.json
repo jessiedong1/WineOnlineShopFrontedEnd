@@ -24,9 +24,29 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/aos/dist/aos.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/jquery-ui/themes/base/core.css",
+              "node_modules/jquery-ui/themes/base/button.css",
+              "node_modules/jquery-ui/themes/base/slider.css",
+              "node_modules/jquery-ui/themes/base/theme.css",
+              "node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "node_modules/jquery.mb.ytplayer/dist/css/jquery.mb.YTPlayer.min.css",
+              "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,6 +108,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +140,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "wine-shop-web-test"
 }

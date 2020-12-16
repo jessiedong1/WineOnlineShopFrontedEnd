@@ -1,0 +1,61 @@
+
+  <div class="site-section">
+    <div class="container">
+      <h1>{{ wine.title }}</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- <div class="owl-carousel hero-slide owl-style">
+            <img src="assets/images/wine_1.png" alt="Image" class="img-fluid">
+            <img src="assets/images/wine_2.png" alt="Image" class="img-fluid">
+            <img src="assets/images/wine_3.png" alt="Image" class="img-fluid">
+          </div> -->
+          <owl-carousel  [options]="{ items: 1, dots: true, nav: true, loop:true, autoplay: true, animateOut: 'fadeOut' }" [carouselClasses]="['owl-theme','hero-slide','owl-style']">
+            <img src="assets/images/wine_1.png" alt="Image" class="img-fluid">
+            <img src="assets/images/wine_2.png" alt="Image" class="img-fluid">
+            <img src="assets/images/wine_3.png" alt="Image" class="img-fluid">
+          </owl-carousel>
+        </div>
+        <div class="col-lg-5 ml-auto">
+          <h2 class="text-secondary">Wine Details</h2>
+          <p>Point: {{ wine.point }}</p>
+          <p *ngIf="wine.region!=undefined">Region: {{ wine.region.region }}</p>
+          <p *ngIf="wine.region!=undefined">State: {{ wine.region.state }}</p>
+          <p *ngIf="wine.region!=undefined">Country: {{ wine.region.country }}</p>
+          <p *ngIf="wine.variety!=undefined"> Grape Variety: {{ wine.variety.grapeType }}</p>
+          <p *ngIf="wine.variety!=undefined"> WineVariety: {{ wine.variety.winetype }}</p>
+          <p>Winery: {{ wine.winery }}</p>
+          <p>Description: {{ wine.description}} </p>
+          <p class="price">Price {{ wine.price | currency:'USD' }} </p>
+    
+          <div class="mb-5">
+            <!-- <div class="input-group mb-3" style="max-width: 200px;">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+              </div>
+              <input type="text" formControlName="quantity" class="text-center border mr-0" value = "1" placeholder=""
+                aria-label="Example text with button addon" aria-describedby="button-addon1">
+              <div class="input-group-append">
+                <button class="btn btn-outline-primary js-btn-plus" type="button">&#43;</button>
+              </div>
+            </div> -->
+            <form [formGroup]="quantityForm">
+                <button type="button" class="btn btn-outline-primary" (click)="buttonMinus()">&minus;</button>
+                <input type="text" formControlName="quantity" required> 
+                <button type="button" class="btn btn-outline-primary" (click)="buttonPlus()">&#43;</button>
+            </form>
+          </div>
+          <p><button class="buy-now btn btn-sm height-auto px-4 py-3 btn-primar" (click)="addToCart(wine)" > Add to Cart</button></p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 section-title text-center">
+      <h2 class="d-block">You may also like</h2>
+      <!-- <p><a routerLink="/shop">View All Products <span class="icon-long-arrow-right"></span></a></p> -->
+    </div>
+    <app-twitter></app-twitter>
+</div>
